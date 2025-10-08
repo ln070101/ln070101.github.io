@@ -1,1 +1,51 @@
-# ln070101.github.io
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>一暖秋日，秋韵鲁大</title>
+    <style>
+        .img-comtainer{
+            width: 220px;
+            height: 220px;
+            margin-left: 50px;
+            float: left;
+        }
+        .img-comtainer img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    </head>
+<body>
+    <div>
+    <h1>美丽校园-秋韵</h1>
+    <h2>作者：李诺</h2>
+    <hr align="left" colour="#aaa" size="2">
+    <div class="contest">
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#natural">自然风光</a></h3>
+    <p>当秋风轻轻掠过校园的每个角落，它仿佛带着一支无形的的画笔，将这片熟悉的土地描绘的愈发多彩与迷人。<br>校园的小径上，两旁的树木在秋风的轻抚下，叶子逐渐由绿转黄，再由黄转红，宛如一幅幅精美的油画，层次分明，色彩斑斓。<br>落叶如同秋天的使者，轻轻飘落。<br>每一步踏上去，都仿佛可以听见时间的低语，感受到岁月的流转<br>这些落叶，有的金黄如琥珀，有的深红是玛瑙，它们静静的躺在那里，讲述着秋天的故事，也记录着我们的成长。<br>风再起时，几片叶子从枝头翻落，有的打着旋，像伞兵舒展身子慢慢飘，有的被风吹着贴着地面划出小段距离<br>这满树满径的秋，都藏在校园的银杏里，成了心头最美好的记忆</p> 
+    <div id="natural">
+        <img src="1.jpg" alt="自然风光" width="220" height="220">
+    </div>
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;人文景观</h3>
+    <ul>
+        <li><a href="#human1">&nbsp;鲁大校门</a>
+    <p>晨曦的光芒落在宽阔的校门口在地面绘成一幅金光闪闪的油画石碑上镌刻着“鲁东大学”几个大字线条稳固 <br>字体端庄 笔力遒劲 在阳光照耀下 熠熠生辉 承载着鲁大er的记忆与梦想夜晚的校门口变得灯火璀璨 温柔美好温暖着在外归来的学子</p></li>
+        <li><a href="#human2">&nbsp;乳子湖</a>
+    <p>依托乳子山道 深幽浩大蓝天白云倒映在水面上随日升日落 变幻色彩不同的光线勾勒出一幅幅仙境画卷漫步于碧波之上 <br>轻嗅花香坐在亭中 望山峦叠翠 看云卷云舒好一幅宁静唯美的山水墨画</p></li>
+        <li> <a href="#human3">&nbsp;红顶楼</a>
+    <p>在这一颗红光艳射的“明珠”背后藏匿着日落与晨曦静静聆听它的呼吸偌大校园的脉搏 跳动着诗意柔和的光线下<br> 抚平了岁月的痕迹依旧散发着年轻的气息湛湛蓝天下 如此宏伟 如此挺拔 </p></li>
+    </ul>
+    <div class="img-comtainer">
+        <img src="8.jpg" alt="鲁大校门" width="220" height="220">
+    </div>
+    <div class="img-comtainer">
+        <img src="7.jpg" alt="乳子湖" width="220" height="220">
+    </div>
+    <div class="img-comtainer">
+        <img src="6.jpg" alt="红顶楼" width="220" height="220">
+    </div> 
+    </div>
+    </div>
+</body>
+</html>
