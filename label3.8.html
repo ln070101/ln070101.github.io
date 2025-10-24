@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鲁东大学书网</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'KaiTi';
+        }
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #f50606;
+            color: white;
+            padding: 12px 0;
+            overflow: hidden; 
+        }
+        .container {
+            width: 1800px;
+            margin: 0 auto;
+        }
+        .logo {
+            float: left;
+            font-size: 28px;
+            font-weight: bold;
+            margin-right: 40px;
+        }
+        .logo img {
+            width:100px;
+            height: 50px;
+            cursor: pointer;
+            float: left;
+        }
+        nav {
+            float: left;
+        }
+        nav ul {
+            list-style: none;
+        }
+        nav ul li {
+            float: left;
+            margin-right: 25px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            display: block;
+        }
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+        }
+        .user-actions {
+            float: right;
+        }
+        .user-actions a {
+            color: white;
+            margin-left: 15px;
+            text-decoration: none;
+        }
+        .user-actions a:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .main-content {
+            overflow: hidden; 
+            margin: 20px auto;
+        }
+        .left-sidebar {
+            float: left;
+            width: 20%;
+            background-color: white;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative; 
+        }
+        .left-sidebar h3 {
+            color: #ff0000;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        .left-sidebar h3 i {
+            margin-right: 8px;
+        }
+        .left-sidebar ul {
+            list-style: none;
+        }
+        .left-sidebar ul li {
+            margin-bottom: 10px;
+        }
+        .left-sidebar ul li a {
+            color: #555;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 8px 5px;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        .left-sidebar ul li a:hover {
+            background-color: #f0f0f0;
+            color: #ff5000;
+            cursor: pointer;
+            padding-left: 10px;
+        }
+        .left-sidebar ul li a i {
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+        }
+        .extended-content {
+            margin-top: 20px;
+        }
+        .extended-content h4 {
+            color: #ff5000;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .extended-content h4 i {
+            margin-right: 8px;
+        }
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tag {
+            background-color: #f8f9fa;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            color: #666;
+            transition: all 0.3s;
+        }
+        .tag:hover {
+            background-color: #6db31d;
+            color: white;
+            cursor: pointer;
+        }
+        .middle-content {
+            float: left;
+            width: 55%;
+            margin: 0 2.5%;
+        }
+        .book-section {
+            background-color: white;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .book-section h3 {
+            color: #ff4000;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .book-section h3 a {
+            font-size: 14px;
+            font-weight: normal;
+            color: #666;
+            text-decoration: none;
+        }
+        .book-section h3 a:hover {
+            color: #ff5000;
+            cursor: pointer;
+        }
+        .hot-recommend {
+            overflow: hidden;
+        }
+        .book-item {
+            float: left;
+            width: 30%;
+            margin-right: 5%;
+            margin-bottom: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid #ffffff;
+            border-radius: 4px;
+            padding: 10px;
+        }
+        .book-item:nth-child(3n) {
+            margin-right: 0;
+        }
+        .book-item:hover {
+            transform: translateY(-5px);
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .book-cover {
+            width: 95%;
+            height: 300px;
+            background-color: #ffcfcf;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(228, 149, 149);
+            font-weight: bold;
+            margin: 10px;
+           
+        }
+        .book-item img{
+            width: 90%;
+            height: 90%;
+            text-align: center;
+
+        }
+        .book-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            height: 40px;
+            overflow: hidden;
+        }
+        .book-price {
+            color: #ff5000;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .book-original-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+        .book-sales {
+            color: #999;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .new-books table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .new-books th, .new-books td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .new-books th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            color: #ff5000;
+        }
+        .new-books tr:hover {
+            background-color: #f8f9fa;
+            cursor: pointer;
+        }
+        .right-sidebar {
+            float: left;
+            width: 20%;
+            background-color: white;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .right-sidebar h3 {
+            color: #ff4000;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        .right-sidebar h3 i {
+            margin-right: 8px;
+        }
+        .promotion-item {
+            margin-bottom: 15px;
+            padding: 12px;
+            background-color: #fcf3eb;
+            border-radius: 4px;
+            transition: all 0.3s;
+            border-left: 3px solid #ff0000;
+        }
+        .promotion-item:hover {
+            background-color: #fff0e8;
+            cursor: pointer;
+            transform: translateX(5px);
+        }
+        .promotion-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #fe1c03;
+            display: flex;
+            align-items: center;
+        }
+        .promotion-title i {
+            margin-right: 8px;
+        }
+        .promotion-desc {
+            color: #666;
+            font-size: 14px;
+        }
+        .right-extended {
+            margin-top: 25px;
+        }
+        .ranking-list {
+            list-style: none;
+        }
+        .ranking-list li {
+            margin-bottom: 12px;
+            padding: 8px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        .ranking-list li:hover {
+            background-color: #f8f9fa;
+            cursor: pointer;
+        }
+        .ranking-number {
+            width: 24px;
+            height: 24px;
+            background-color: #ff5000;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        .ranking-list li:nth-child(1) .ranking-number {
+            background-color: #ff5000;
+        }
+        .ranking-list li:nth-child(2) .ranking-number {
+            background-color: #ff9000;
+        }
+        .ranking-list li:nth-child(3) .ranking-number {
+            background-color: #ffb300;
+        }
+        .ranking-list li:nth-child(n+4) .ranking-number {
+            background-color: #999;
+        }
+        .ranking-title {
+            flex: 1;
+            font-size: 20px;
+        }
+        .vertical-card-right {
+        width: 300px; 
+        margin-left: auto; 
+        padding: 10px;
+        }
+        .card {
+        border: 1px solid #e0e0e0;
+        border-radius: 6px;
+        padding: 15px;
+        background-color: #ffffff;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        margin-bottom: 15px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo"><img src="./images/ludong.png">
+                鲁东大学书网
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">图书分类</a></li>
+                    <li><a href="#">热门推荐</a></li>
+                    <li><a href="#">新书上市</a></li>
+                    <li><a href="#">促销活动</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="#"><i class="fas fa-user"></i> 登录</a>
+                <a href="#"><i class="fas fa-shopping-cart"></i> 购物车</a>
+            </div>
+        </div>
+    </header>
+    <div class="container main-content">
+        <div class="left-sidebar">
+            <h3><i class="fas fa-list"></i> 图书分类</h3>
+            <ul>
+                <li><a href="#"><i class="fas fa-book"></i> 文学小说</a></li>
+                <li><a href="#"><i class="fas fa-globe-americas"></i> 人文地理</a></li>
+                <li><a href="#"><i class="fas fa-chart-line"></i> 经济专区</a></li>
+                <li><a href="#"><i class="fas fa-laptop-code"></i> 科技小说</a></li>
+                <li><a href="#"><i class="fas fa-palette"></i> 生活报刊</a></li>
+                <li><a href="#"><i class="fas fa-child"></i> 青少年专区</a></li>
+                <li><a href="#"><i class="fas fa-graduation-cap"></i> 教育教辅</a></li>
+                <li><a href="#"><i class="fas fa-language"></i> 外语旧书</a></li>
+            </ul>
+            <div class="divider"></div>
+            <div class="extended-content">
+                <h4><i class="fas fa-tags"></i> 热门标签</h4>
+                <div class="tag-list">
+                    <div class="tag">网络流行</div>
+                    <div class="tag">言情小说</div>
+                    <div class="tag">生活类</div>
+                    <div class="tag">正式</div>
+                    <div class="tag">设计</div>
+                    <div class="tag">正史</div>
+                    <div class="tag">完结</div>
+                    <div class="tag">热剧</div>
+                    <div class="tag">会员专享</div>
+                    <div class="tag">云小说</div>
+                </div>
+            </div>
+        </div>
+        <div class="middle-content">
+            <div class="book-section hot-recommend">
+                <h3>
+                    热门推荐
+                    <a href="#">更多 <i class="fas fa-angle-right"></i></a>
+                </h3>
+                <div class="book-item">
+                    <div class="book-cover"><img src="./images/book1.jpeg"></div>
+                    <div class="book-title">杀死一只知更鸟</div>
+                    <div class="book-price">¥18.00 <span class="book-original-price">¥99.00</span></div>
+                    <div class="book-sales">已售 3.9万+</div>
+                </div>
+                <div class="book-item">
+                    <div class="book-cover"><img src="./images/book2.jpg"></div>
+                    <div class="book-title">绿野仙踪</div>
+                    <div class="book-price">¥59.00 <span class="book-original-price">¥60.00</span></div>
+                    <div class="book-sales">已售 3.9万+</div>
+                </div>
+                <div class="book-item">
+                    <div class="book-cover"><img src="./images/book3.jpeg"></div>
+                    <div class="book-title">沉思录</div>
+                    <div class="book-price">¥60.00 <span class="book-original-price">¥90.00</span></div>
+                    <div class="book-sales">已售 1.5万+</div>
+                </div>
+                <div class="book-item">
+                    <div class="book-cover"><img src="./images/book4.jpg"></div>
+                    <div class="book-title">通往正义的路</div>
+                    <div class="book-price">¥1000.00 <span class="book-original-price">¥2295.00</span></div>
+                    <div class="book-sales">已售 0.01万+</div>
+                </div>
+                <div class="book-item">
+                    <div class="book-cover"><img src="./images/book5.jpeg"></div>
+                    <div class="book-title">我的家（普通版）</div>
+                    <div class="book-price">¥60.00 <span class="book-original-price">¥95.00</span></div>
+                    <div class="book-sales">已售 1.51万+</div>
+                </div><div class="book-item">
+                    <div class="book-cover"><img src="./images/book5.jpeg"></div>
+                    <div class="book-title">我的家（典藏版）</div>
+                    <div class="book-price">150.00 <span class="book-original-price">¥229.00</span></div>
+                    <div class="book-sales">已售 30.2万+</div>
+                </div>
+            </div>
+            <div class="book-section new-books">
+                <h3>
+                    新书上市
+                    <a href="#">更多 <i class="fas fa-angle-right"></i></a>
+                </h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>书名</th>
+                            <th>作者</th>
+                            <th>出版社</th>
+                            <th>价格</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>国学经典</td>
+                            <td>李明</td>
+                            <td>人民出版社</td>
+                            <td>¥20.00</td>
+                        </tr>
+                        <tr>
+                            <td>英语作文分析</td>
+                            <td>李华</td>
+                            <td>英语出版社</td>
+                            <td>¥50.00</td>
+                        </tr>
+                        <tr>
+                            <td>诗经分析·三本全</td>
+                            <td>李峰</td>
+                            <td>现代出版社</td>
+                            <td>¥23.00</td>
+                        </tr>
+                        <tr>
+                            <td>3d建模</td>
+                            <td>林临</td>
+                            <td>数字出版社</td>
+                            <td>¥105.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="right-sidebar">
+            <h3><i class="fas fa-gift"></i> 促销信息</h3>
+            <div class="promotion-item">
+                <div class="promotion-title"><i class="fas fa-tags"></i> 全场满减活动</div>
+                <div class="promotion-desc">满200减30，满300减50，优惠多多！</div>
+            </div>
+            <div class="promotion-item">
+                <div class="promotion-title"><i class="fas fa-user-plus"></i> 新用户专享</div>
+                <div class="promotion-desc">新用户注册即送50元优惠券！</div>
+            </div>
+            <div class="promotion-item">
+                <div class="promotion-title"><i class="fas fa-clock"></i> 限时特惠</div>
+                <div class="promotion-desc">精选图书限时5折！</div>
+            </div>
+            <div class="promotion-item">
+                <div class="promotion-title"><i class="fas fa-crown"></i> 会员专享</div>
+                <div class="promotion-desc">会员购书享9折优惠，积分还可兑换好礼！</div>
+            </div>
+            <div class="right-extended">
+                <h3><i class="fas fa-chart-line"></i> 热销排行榜</h3>
+                <ul class="ranking-list">
+                    <li>
+                        <div class="ranking-number">1</div>
+                        <div class="ranking-title">wed之美</div>
+                    </li>
+                    <li>
+                        <div class="ranking-number">2</div>
+                        <div class="ranking-title">web从实践到精通</div>
+                    </li>
+                     <li>
+                        <div class="ranking-number">3</div>
+                        <div class="ranking-title">web实战指南</div>
+                    </li>
+                    <li>
+                        <div class="ranking-number">4</div>
+                        <div class="ranking-title">web全栈开发实战</div>
+                    </li>
+                    <li>
+                        <div class="ranking-number">5</div>
+                        <div class="ranking-title">web权威指南</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-sidebar">
+                <div class="vertical-card-right">
+                <div class="card">
+                   <h3><i class="fas fa-shopping-bag"></i>我的购物车</h3>
+                    <p>快来看看吧</p >
+                 </div>
+                <div class="card">
+                    <h3><i class="fas fa-shopping-bag"></i>我的收藏</h3>
+                    <p>快来看看吧</p >
+                 </div>
+                <div class="card">
+                    <h3><i class="fas fa-shopping-bag"></i>我的</h3>
+                    <p>查看个人信息</p >
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
