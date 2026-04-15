@@ -27,7 +27,7 @@
             display: flex; align-items: center;font-size: 24px; font-weight: bold;
         }
         .logo img {
-            width: 150px; height: 80px;margin-right: 10px;
+            width: 250px; height: 100px;margin-right: 10px;
         }
         nav ul {
             display: flex; list-style: none;
@@ -57,7 +57,7 @@
             color: #333; display: block;padding: 10px 15px; border-bottom: 1px solid #eee;
         }
         .dropdown-menu a:hover {
-            background: #f5f5f5; color: #d32f2f;
+            background: #f5f5f5; color: #ff0000;
         }
         nav ul li:hover .dropdown-menu {
             display: block;
@@ -117,14 +117,14 @@
             padding: 8px 5px;border-radius: 4px; transition: all 0.3s;
         }
         .sidebar ul li a:hover {
-            background-color: #f0f0f0; color: #d32f2f;padding-left: 10px;
+            background-color: #f0f0f0; color: #ff0000;padding-left: 10px;
         }
         .sidebar ul li a i {
             margin-right: 8px; width: 20px; text-align: center;
         }
         .category-tooltip {
             display: none; visibility: hidden; position: absolute; left: 100%; top: 50%; transform: translateY(-50%);
-            background: rgba(193, 89, 89, 0.9); color: white; padding: 12px 15px; border-radius: 6px;
+            background: rgba(223, 67, 67, 0.9); color: rgb(255, 255, 255); padding: 12px 15px; border-radius: 6px;
             font-size: 13px; width: 200px; z-index: 100; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); line-height: 1.5; transition: all 0.3s ease; 
         }
         .sidebar ul li:hover .category-tooltip {
@@ -138,7 +138,7 @@
             color: #666;transition: all 0.3s;position: relative;
         }
         .tag:hover {
-            background-color: #d32f2f; color: white; cursor: pointer;
+            background-color: #ff0000; color: white; cursor: pointer;
         }
         .tag-tooltip {
             display: none; visibility: hidden;
@@ -209,7 +209,7 @@
             border-radius: 4px; cursor: pointer; transition: background 0.3s; font-size: 14px;
         }
         .overlay-buttons button:hover {
-            background: #b71c1c;
+            background: #ff0000;
         }
         .book-title {
             font-weight: bold; height: 40px; display: flex; align-items: center;
@@ -302,11 +302,10 @@
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="container" id="top">
             <div class="header-content">
                 <div class="logo">
                     <img src="/images/ludong.png" alt="鲁东大学">
-                    鲁东大学书网
                 </div>
                 <nav>
                     <ul>
@@ -340,7 +339,14 @@
                         <ul class="dropdown-menu">
                                 <li><a href="#">双十一活动已经开始！！！</a></li>
                                 <li><a href="#">双十二活动敬请期待❤️</a></li>
-                            </ul>
+                        </ul>
+                        </li>
+                        <li><a href="#">其他服务<i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                                <li><a href="#">投诉 </a></li>
+                                <li><a href="#">其他</a></li>
+                                <li><a href="#">更多</a></li>
+                        </ul>
                         </li>
                     </ul>
                 </nav>
@@ -592,7 +598,7 @@
         <div class="cart-count">3</div>
     </div>
     <div class="back-to-top">
-        <a href="#" style="color: white; text-decoration: none;">
+        <a href="#top" style="color: white; text-decoration: none;">
             <i class="fas fa-arrow-up"></i>
         </a>
     </div>
